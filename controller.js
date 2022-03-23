@@ -14,19 +14,8 @@ module.exports = controller = function(campanhaRepository) {
             res.send({mensagem: MENSAGEM_AUTHORIZATION_NAO_ENVIADO});
             return;
         }
-        const idCampanha = req.params.idCampanha;
-        if (!Number.isInteger(Number(idCampanha))) {
-            res.status(STATUS_CODE_BAD_REQUEST);
-            res.send({mensagem: MENSAGEM_ID_CAMPANHA_INVALIDO});
-            return;
-        }
-        const campanha = campanhaRepository.findById(idCampanha);
-        if (!campanha) {
-            res.status(STATUS_CODE_NOT_FOUND);
-            res.send({mensagem: MENSAGEM_ID_CAMPANHA_NAO_ENCONTRADO});
-            return;
-        }
-        res.status(STATUS_CODE_OK);
-        res.send(campanha);
+        res.status(STATUS_CODE_BAD_REQUEST);
+        res.send({mensagem: MENSAGEM_ID_CAMPANHA_INVALIDO});
+        return;
     };
 }
